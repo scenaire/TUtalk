@@ -22,7 +22,7 @@ public class HBThread implements Runnable{
     BufferedReader reader = null;
     DataInputStream is = null;
 	
-	public HBThread(Socket socket, User user, ClientList cl) {
+	public HBThread(Socket socket, User user) {
 		this.socket = socket;
 		this.user = user;
 		
