@@ -79,7 +79,7 @@ JButton blogin;
   		a1.add(set3 ,BorderLayout.NORTH);
   		a1.add(set4 ,BorderLayout.SOUTH);
   		panelAll.add(a,BorderLayout.NORTH);
-  		panelAll.add(a1,BorderLayout.CENTER);
+  		//panelAll.add(a1,BorderLayout.CENTER);
   		loginBtn = new JButton("Login"); 
   		panelAll.add(loginBtn,BorderLayout.SOUTH);
   	this.add(panelAll);
@@ -89,15 +89,12 @@ JButton blogin;
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	chat.setUsername(txuser.getText());
-            	chat.setIP(ip.getText());
-            	chat.setpass(pass.getText());
-            	chat.setport(Integer.parseInt(port.getText()));
+            	
             	System.out.println("USER:"+txuser.getText());
             	System.out.println("PASS:"+pass.getText());
             	System.out.println("IP:"+ip.getText());
             	System.out.println("PORT:"+port.getText());
-            	chat.connect();
+            	
             	cD.show();
             }
 
