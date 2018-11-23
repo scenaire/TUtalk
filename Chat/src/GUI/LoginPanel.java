@@ -2,7 +2,7 @@ package GUI;
 
 import javax.swing.*;
 
-
+import Client.ClientChat;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -27,7 +27,7 @@ JButton blogin;
  chatDisplay cD = new chatDisplay();
   
   	public LoginPanel() {
-  		 ClientChat chat = new ClientChat();
+  		ClientChat chat = new ClientChat();
   		txuser.setText("5909610262");
   		pass.setText("0262");
   		ip.setText("173.25.114.135");
