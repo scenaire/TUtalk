@@ -3,16 +3,20 @@ package GUI;
 import javax.swing.*;
 
 import Client.ClientChat;
+import Client.HBThread;
+import Controller.Controller;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.net.UnknownHostException;
 import java.util.*;
 
 public class LoginPanel extends JPanel implements ActionListener{
 	private String User_IP, User_Pass, User_ID ;
 	private int User_Port;
 	static boolean re=false;
+	Controller control = new  Controller();
 JButton blogin;
   JPanel loginpanel;
   JTextField txuser = new JTextField(20);
@@ -89,7 +93,18 @@ JButton blogin;
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            	
+            	try {
+					control.setUser(txuser.getText(),pass.getText(), "173.25.114.135",2800);
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             	System.out.println("USER:"+txuser.getText());
             	System.out.println("PASS:"+pass.getText());
             	System.out.println("IP:"+ip.getText());
