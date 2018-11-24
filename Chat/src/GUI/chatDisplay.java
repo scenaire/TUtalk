@@ -8,6 +8,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,17 +21,19 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import Controller.Controller;
+
 public class chatDisplay extends JPanel{
 	private String contact;
 	private String messIn;
 	private String messOut;
 	private String text = "";
-	JTextArea t1 = new JTextArea(10,30);
-	JTextArea t2 = new JTextArea(4,30);
-	JTextArea t3 = new JTextArea(13,15);
-	JScrollPane box1 = new JScrollPane(t1);
-	JScrollPane box2 = new JScrollPane(t2);
-	JScrollPane contacts = new JScrollPane(t3);
+	JTextArea boxchat = new JTextArea(10,30);
+	JTextArea boxSend= new JTextArea(4,30);
+	JTextArea boxShowFriennd = new JTextArea(13,15);
+	JScrollPane box1 = new JScrollPane(boxchat);
+	JScrollPane box2 = new JScrollPane(boxSend);
+	JScrollPane contacts = new JScrollPane(boxShowFriennd);
 	JButton bSend = new JButton("send");
 	
 	
@@ -42,14 +46,7 @@ public class chatDisplay extends JPanel{
 	public String getMessage() {
 		return messOut;
 	}
-	public void settext(String text) {
-		
-		if(t3 == null) {
-			t3.setText(text);
-		}else {
-			t3.setText("\n"+text);
-		}
-	}
+	
 	
 	
 	public  chatDisplay() {
@@ -72,7 +69,7 @@ public class chatDisplay extends JPanel{
 		
 		//display message from friend
 		if(messIn != null) {
-			t1.setText(t1.getText()+messIn);
+			boxchat.setText(boxchat.getText()+messIn);
 		}
 		
 		
@@ -85,15 +82,15 @@ public class chatDisplay extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				messOut+=t2.getText();
-				t1.setText(t1.getText()+"\n RockMan : "+t2.getText());
-				t2.setText("");
+				messOut+=boxSend.getText();
+				boxchat.setText(boxchat.getText()+"\n RockMan : "+boxSend.getText());
+				boxSend.setText("");
 			}
 			
 		});
 	
-		t1.setEditable(false);
-		t3.setEditable(false);
+		boxchat.setEditable(false);
+		boxShowFriennd.setEditable(false);
 		box1.getDefaultLocale();
 		box2.getDefaultLocale();
 		contacts.getDefaultLocale();
@@ -132,5 +129,16 @@ public class chatDisplay extends JPanel{
 		
 		
 	}
-
+public static void main(String[] args) throws UnknownHostException, IOException {
+		
+		JFrame f = new JFrame();
+		chatDisplay c = new chatDisplay();
+		
+		f.add(c);
+		f.pack();
+		//f.setSize(c.getWidth(), c.getHeight());
+		f.setVisible(true);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
 }
