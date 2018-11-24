@@ -8,8 +8,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class HBThread implements Runnable{
+	
+	public static final String Server_IP = "128.199.83.36";
+	public static final int Server_Port = 34261;
 	
 	private Socket socket = null;
 	private User user = null;
@@ -22,8 +26,8 @@ public class HBThread implements Runnable{
     BufferedReader reader = null;
     DataInputStream is = null;
 	
-	public HBThread(Socket socket, User user) {
-		this.socket = socket;
+	public HBThread(User user) throws UnknownHostException, IOException {
+		socket = new Socket(Server_IP,Server_Port);
 		this.user = user;
 		
 		cl = new ClientList();

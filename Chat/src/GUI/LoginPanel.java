@@ -1,26 +1,19 @@
 package GUI;
 
-import javax.swing.*;
-
-import Client.ClientChat;
-import Client.HBThread;
-import Controller.Controller;
-
+import javax.swing.*; 
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.net.UnknownHostException;
-import java.util.*;
 
 public class LoginPanel extends JPanel{
-	JTextField txuser = new JTextField(20);
-	JTextField pass = new JTextField(20);
-	JLabel usernameLabel = new JLabel("Username :");
-	JLabel passwordLabel= new JLabel("Password :");
-	JButton loginBtn;
-	chatDisplay cD = new chatDisplay();
+	private JTextField idField = new JTextField(20);
+	private JTextField passField = new JTextField(20);
+	private JLabel usernameLabel = new JLabel("Username :");
+	private JLabel passwordLabel= new JLabel("Password :");
+	private JButton loginBtn;
+	private chatDisplay cD = new chatDisplay();
   
   	public LoginPanel() {
+  		idField.setText("5909610015");
+  		passField.setText("0015");
   		JPanel panelAll = new JPanel();
   		JPanel p1 = new JPanel();
   		JPanel p2 = new JPanel();
@@ -35,9 +28,9 @@ public class LoginPanel extends JPanel{
   		p4.setLayout(new java.awt.FlowLayout());
   		
   		p1.add(usernameLabel);
-  		p1.add(txuser);
+  		p1.add(idField);
   		p2.add(passwordLabel);
-  		p2.add(pass);
+  		p2.add(passField);
   		JPanel set1 = new JPanel();
   		set1.setLayout(new BorderLayout());
   		JPanel set2 = new JPanel();
@@ -69,6 +62,19 @@ public class LoginPanel extends JPanel{
   		this.setSize(new Dimension(420,200));
   		this.add(panelAll);
   	}
+  	
+  	
+  	public String getUser_ID() {
+		return idField.getText();
+	}
+
+	public String getUser_pass() {
+		return passField.getText();
+	}
+
+	public JButton getLoginBtn() {
+		return loginBtn;
+	}
 	
 
 }
