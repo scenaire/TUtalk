@@ -18,6 +18,7 @@ public class HBThread implements Runnable{
 	private Socket socket = null;
 	private User user = null;
 	private ClientList cl = null;
+	private boolean canLogin = false;
 	
 	String checkCon;
 	OutputStream output = null;
@@ -53,7 +54,7 @@ public class HBThread implements Runnable{
 	     writer.println("PASS:"+user.getUser_Pass());
 	     writer.println("IP:"+user.getUser_IP());
 	     writer.println("PORT:"+user.getUser_Port());
-	     
+
 	     try {
 			addFriendList();
 		} catch (IOException e1) {
@@ -110,6 +111,10 @@ public class HBThread implements Runnable{
 	
 	public ClientList getClientList() {
 		return cl;
+	}
+	
+	public boolean canLogin() {
+		return canLogin;
 	}
 	
 	

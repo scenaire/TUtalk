@@ -132,25 +132,5 @@ public class chatDisplay extends JPanel{
 		
 		
 	}
-	public void show () {
-		JFrame f = new JFrame("Talk To You (TU)");
-		chatDisplay c = new chatDisplay();
-		f.add(c);
-		f.pack();
-		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
-		f.setVisible(true);
-	}
-	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		chatDisplay display = new chatDisplay();
-		JFrame frame = new JFrame("Talk To You (TU)");
-		frame.add(display);
-		frame.setVisible(true);
-		frame.setSize(600,400);
-		//frame.pack();
-		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-	}
 
 }

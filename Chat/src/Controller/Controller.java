@@ -3,6 +3,7 @@ package Controller;
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import Client.HBThread;
@@ -65,6 +66,8 @@ public class Controller {
 			}
 		});
 	}
+	
+	
 	public  void showChat() {
 		
 	}
