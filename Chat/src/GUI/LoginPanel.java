@@ -12,30 +12,15 @@ import java.io.*;
 import java.net.UnknownHostException;
 import java.util.*;
 
-public class LoginPanel extends JPanel implements ActionListener{
-	private String User_IP, User_Pass, User_ID ;
-	private int User_Port;
-	static boolean re=false;
-	Controller control = new  Controller();
-JButton blogin;
-  JPanel loginpanel;
-  JTextField txuser = new JTextField(20);
-  JTextField pass = new JTextField(20);
-  JTextField ip = new JTextField(20);
-  JTextField port = new JTextField(20);
-  JLabel usernameLabel = new JLabel("Username :");
-  JLabel passwordLabel= new JLabel("Password :");
-  JLabel ipLabel = new JLabel("IP              :");
-  JLabel portLabel= new JLabel("Port          :");
-  JButton loginBtn;
- chatDisplay cD = new chatDisplay();
+public class LoginPanel extends JPanel{
+	JTextField txuser = new JTextField(20);
+	JTextField pass = new JTextField(20);
+	JLabel usernameLabel = new JLabel("Username :");
+	JLabel passwordLabel= new JLabel("Password :");
+	JButton loginBtn;
+	chatDisplay cD = new chatDisplay();
   
   	public LoginPanel() {
-  		ClientChat chat = new ClientChat();
-  		txuser.setText("5909610262");
-  		pass.setText("0262");
-  		ip.setText("173.25.114.135");
-  		port.setText("2800");
   		JPanel panelAll = new JPanel();
   		JPanel p1 = new JPanel();
   		JPanel p2 = new JPanel();
@@ -43,8 +28,6 @@ JButton blogin;
   		JPanel p4 = new JPanel();
   		usernameLabel.setFont(new Font("Agency FB", Font.PLAIN, 20));
   		passwordLabel.setFont(new Font("Agency FB", Font.PLAIN, 20));
-  		ipLabel.setFont(new Font("Agency FB", Font.PLAIN, 20));
-  		portLabel.setFont(new Font("Agency FB", Font.PLAIN, 20));
   		panelAll.setLayout(new BorderLayout());
   		p1.setLayout(new java.awt.FlowLayout());
   		p2.setLayout(new java.awt.FlowLayout());
@@ -55,10 +38,6 @@ JButton blogin;
   		p1.add(txuser);
   		p2.add(passwordLabel);
   		p2.add(pass);
-  		p3.add(ipLabel);
-  		p3.add(ip);
-  		p4.add(portLabel);
-  		p4.add(port);
   		JPanel set1 = new JPanel();
   		set1.setLayout(new BorderLayout());
   		JPanel set2 = new JPanel();
@@ -86,59 +65,10 @@ JButton blogin;
   		//panelAll.add(a1,BorderLayout.CENTER);
   		loginBtn = new JButton("Login"); 
   		panelAll.add(loginBtn,BorderLayout.SOUTH);
-  	this.add(panelAll);
-  	
   		loginBtn.setFont(new Font("Agency FB", Font.BOLD, 15));
-  		loginBtn.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	try {
-					control.setUser(txuser.getText(),pass.getText(), "173.25.114.135",2800);
-				} catch (UnknownHostException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-            	System.out.println("USER:"+txuser.getText());
-            	System.out.println("PASS:"+pass.getText());
-            	System.out.println("IP:"+ip.getText());
-            	System.out.println("PORT:"+port.getText());
-            	
-            	cD.show();
-            }
-
-        });
-  		
+  		this.setSize(new Dimension(420,200));
   		this.add(panelAll);
   	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		JFrame f = new JFrame("Talk To You (TU)");
-		LoginPanel l = new LoginPanel();
-		
-		f.add(l);
-		
-	//	f.setSize(420,250);
-		f.pack();
-		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
-		f.setVisible(true);
-		
-		
-		
-	}
-
 
 }

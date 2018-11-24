@@ -14,7 +14,6 @@ public class User {
 		this.User_Pass = pass;
 		this.User_IP = ip;
 		this.User_Port = port;
-		
 	}
 	
 	public String getUser_IP() {
@@ -24,15 +23,12 @@ public class User {
 		User_IP = user_IP;
 	}
 	public String getUser_Pass() {
-		System.out.println("get pass");
 		return User_Pass;
 	}
 	public void setUser_Pass(String user_Pass) {
-		
 		User_Pass = user_Pass;
 	}
 	public String getUser_ID() {
-		System.out.println("get id");
 		return User_ID;
 	}
 	public void setUser_ID(String user_ID) {

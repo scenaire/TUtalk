@@ -1,15 +1,13 @@
 import Client.User;
 import Controller.Controller;
+import GUI.LoginPanel;
+import GUI.MainFrame;
 
 public class TalktoU {
 
 	public static void main(String[] args) {
 		
-		Controller c = new Controller();
-		
-		User user = new User();
-		c.setUser(user);
-		
+		MainFrame f = new MainFrame();
 		
 	}
 
