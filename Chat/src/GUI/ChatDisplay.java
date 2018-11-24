@@ -4,53 +4,32 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.UnknownHostException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
-import Controller.Controller;
-
-public class chatDisplay extends JPanel{
+public class ChatDisplay extends JPanel{
 	private String contact;
 	private String messIn;
 	private String messOut;
 	private String text = "";
 	JTextArea boxchat = new JTextArea(10,30);
 	JTextArea boxSend= new JTextArea(4,30);
-	JTextArea boxShowFriennd = new JTextArea(13,15);
+	JTextArea boxShowFriend = new JTextArea(13,15);
 	JScrollPane box1 = new JScrollPane(boxchat);
 	JScrollPane box2 = new JScrollPane(boxSend);
-	JScrollPane contacts = new JScrollPane(boxShowFriennd);
+	JScrollPane contacts = new JScrollPane(boxShowFriend);
 	JButton bSend = new JButton("send");
 	
-	
-	public void contactList(String cn) {
-		contact=cn;
-	}
-	public void sendMassage(String mi) {
-		messIn+=mi;
-	}
-	public String getMessage() {
-		return messOut;
-	}
-	
-	
-	
-	public  chatDisplay() {
-		
+	public  ChatDisplay() {
+		this.setSize(new Dimension(600,300));
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 		JPanel p3 = new JPanel();
@@ -75,22 +54,9 @@ public class chatDisplay extends JPanel{
 		
 		//display contractlist
 
-		
-	
-		bSend.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				messOut+=boxSend.getText();
-				boxchat.setText(boxchat.getText()+"\n RockMan : "+boxSend.getText());
-				boxSend.setText("");
-			}
-			
-		});
 	
 		boxchat.setEditable(false);
-		boxShowFriennd.setEditable(false);
+		boxShowFriend.setEditable(false);
 		box1.getDefaultLocale();
 		box2.getDefaultLocale();
 		contacts.getDefaultLocale();
@@ -129,16 +95,21 @@ public class chatDisplay extends JPanel{
 		
 		
 	}
-public static void main(String[] args) throws UnknownHostException, IOException {
-		
-		JFrame f = new JFrame();
-		chatDisplay c = new chatDisplay();
-		
-		f.add(c);
-		f.pack();
-		//f.setSize(c.getWidth(), c.getHeight());
-		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+	
+	public JTextArea getBoxShowFriennd() {
+		return boxShowFriend;
 	}
+	
+	public void contactList(String cn) {
+		contact=cn;
+	}
+	
+	public void sendMassage(String mi) {
+		messIn+=mi;
+	}
+	
+	public String getMessage() {
+		return messOut;
+	}
+	
 }

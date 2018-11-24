@@ -12,9 +12,6 @@ import java.net.UnknownHostException;
 
 public class HBThread implements Runnable{
 	
-	public static final String Server_IP = "128.199.83.36";
-	public static final int Server_Port = 34261;
-	
 	private Socket socket = null;
 	private User user = null;
 	private ClientList cl = null;
@@ -27,12 +24,11 @@ public class HBThread implements Runnable{
     BufferedReader reader = null;
     DataInputStream is = null;
 	
-	public HBThread(User user) throws UnknownHostException, IOException {
-		socket = new Socket(Server_IP,Server_Port);
+	public HBThread(Socket s,User user,ClientList cl) throws UnknownHostException, IOException {
+		this.socket = s;
 		this.user = user;
 		
-		cl = new ClientList();
-		
+		this.cl = cl;
 		checkCon = "Hello "+this.user.getUser_ID();
 		
 		try {
@@ -47,16 +43,14 @@ public class HBThread implements Runnable{
 	    
 	}
 
+
 	@Override
 	public void run() {
 		
-		 writer.println("USER:"+user.getUser_ID());
-	     writer.println("PASS:"+user.getUser_Pass());
-	     writer.println("IP:"+user.getUser_IP());
-	     writer.println("PORT:"+user.getUser_Port());
-
-	     try {
-			addFriendList();
+		System.out.println("hi");
+		
+		try {
+			updateFriendList();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -75,7 +69,7 @@ public class HBThread implements Runnable{
 				writer.println("Hello Server");
 				
 				try {
-					addFriendList();
+					updateFriendList();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -86,7 +80,7 @@ public class HBThread implements Runnable{
 		
 	}
 	
-	private void addFriendList() throws IOException {
+	private void updateFriendList() throws IOException {
 		String[] split;
 		String line = null;
 		Client c;
@@ -108,15 +102,6 @@ public class HBThread implements Runnable{
 	    }
 	    System.out.println(cl.getClientAtIndex(0).getID() +": "+cl.getClientAtIndex(0).isStatus());   
 	}
-	
-	public ClientList getClientList() {
-		return cl;
-	}
-	
-	public boolean canLogin() {
-		return canLogin;
-	}
-	
 	
 
 }

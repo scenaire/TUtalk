@@ -14,12 +14,14 @@ import GUI.MainFrame;
 
 public class TalktoU {
 
+	private static final String SERVER_IP = "128.199.83.36";
+	private static final int SERVER_PORT = 34261;
+
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		
 		Controller c = new Controller();
-		MainFrame f = new MainFrame(c.getLoginPanel());
-		
-		c.logIn();
+		c.setSocket(SERVER_IP, SERVER_PORT);
+		c.run();
 		
 		
 	}

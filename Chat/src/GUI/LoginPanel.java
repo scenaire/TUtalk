@@ -9,7 +9,7 @@ public class LoginPanel extends JPanel{
 	private JLabel usernameLabel = new JLabel("Username :");
 	private JLabel passwordLabel= new JLabel("Password :");
 	private JButton loginBtn;
-	private chatDisplay cD = new chatDisplay();
+	private ChatDisplay cD = new ChatDisplay();
   
   	public LoginPanel() {
   		idField.setText("5909610015");

@@ -20,6 +20,7 @@ public class MainFrame extends JFrame{
 		this.removeAll();
 		this.add(p);
 		this.setSize(p.getWidth(), p.getHeight());
+		this.repaint();
 		this.revalidate();
 	}
 
