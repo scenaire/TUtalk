@@ -19,7 +19,6 @@ public class ClientList {
 	}
 	
 	public Client getClientFromID(String ID) {
-		//Yay
 		for (Client a : ClientList) {
 			if (a.getID().equals(ID)) {
 				return a;

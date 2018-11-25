@@ -95,7 +95,7 @@ public class Controller {
 				} catch (UnknownHostException e1) {
 					e1.printStackTrace();
 				}
-				int port = 28000;
+				int port = 11111;
 				user.setUser_ID(id);
 				user.setUser_Pass(pass);
 				user.setUser_IP(ip);
@@ -123,8 +123,7 @@ public class Controller {
 					    }, 0L, 4000L);
 					    chatDisplay.getConnectBtn().addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								System.out.println("Start connect");
-								startConnect(cl.getClientFromID(chatDisplay.getConnectBtn().getText()));
+								startConnect(cl.getClientFromID(chatDisplay.getIDonnect()));
 							}
 					    });
 					} else {
