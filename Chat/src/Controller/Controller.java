@@ -123,12 +123,6 @@ public class Controller {
 					    }, 0L, 4000L);
 					    chatDisplay.getConnectBtn().addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								try {
-									listeningThread.wait();
-								} catch (InterruptedException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
 								System.out.println("Start connect");
 								startConnect(cl.getClientFromID(chatDisplay.getConnectBtn().getText()));
 							}
