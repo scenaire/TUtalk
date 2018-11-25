@@ -46,6 +46,7 @@ public class Controller {
 	public void run() {
 		f = new MainFrame(loginPanel);
 		logIn();
+		getIDConnect();
 	}
 	
 	public User getUser() {
@@ -109,7 +110,7 @@ public class Controller {
 									chatDisplay.getBoxShowFriennd().append(a.getID()+": "+online+"\n");
 								} 
 					        }
-					    }, 0L, 5000L);
+					    }, 0L, 4000L);
 						
 						
 					} else {
@@ -120,6 +121,18 @@ public class Controller {
 				}
 			}
 		});
+	}
+	public void getIDConnect() {
+		chatDisplay.getConncetBtn().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String conncetID ;
+					conncetID = chatDisplay.getIDConnect();
+					System.out.println("Client want connect ID :"+conncetID);
+		
+	}
+});
+
+		
 	}
 	
 	

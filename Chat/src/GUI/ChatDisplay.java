@@ -3,6 +3,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class ChatDisplay extends JPanel{
 	private String contact;
@@ -27,13 +30,26 @@ public class ChatDisplay extends JPanel{
 	JScrollPane box2 = new JScrollPane(boxSend);
 	JScrollPane contacts = new JScrollPane(boxShowFriend);
 	JButton bSend = new JButton("send");
-	
+	JLabel connectTo ;
+	JTextField connectfield;
+	JButton connect;
 	public  ChatDisplay() {
+		connectTo = new JLabel("Connect To:");
+		connectTo.setFont(new Font("Agency FB", 0, 18));
+		connectfield= new JTextField(15);
+		connect = new JButton("Start conncet!!");
+		connect.setFont(new Font("Agency FB", 0, 18));
+		JPanel connectPanel = new JPanel();
+		connectPanel.setLayout(new FlowLayout());
+		connectPanel.add(connectTo);
+		connectPanel.add(connectfield);
+		connectPanel.add(connect);
 		this.setSize(new Dimension(600,300));
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 		JPanel p3 = new JPanel();
 		JPanel p4 = new JPanel();
+		JPanel panelAll2 = new JPanel();
 		JPanel chatSide = new JPanel();
 		JPanel showUserSide = new JPanel();
 		bSend.setFont(new Font("Agency FB", 0, 25));
@@ -83,7 +99,6 @@ public class ChatDisplay extends JPanel{
 		showUserSide.setLayout(new BorderLayout());
 		showUserSide.add(contactsLabel ,BorderLayout.NORTH);
 		showUserSide.add(contacts ,BorderLayout.CENTER);
-		
 		JPanel panelAll = new JPanel();
 		panelAll.setLayout(new BorderLayout());
 		JLabel namePro = new JLabel("Talk To You <TU>");
@@ -91,9 +106,16 @@ public class ChatDisplay extends JPanel{
 		panelAll.add(namePro,BorderLayout.NORTH);
 		panelAll.add(showUserSide,BorderLayout.CENTER);
 		panelAll.add(chatSide ,BorderLayout.EAST);
-		this.add(panelAll);
-		
-		
+		panelAll2.setLayout(new BorderLayout());
+		panelAll2.add(panelAll,BorderLayout.NORTH);
+		panelAll2.add(connectPanel,BorderLayout.SOUTH);
+		this.add(panelAll2);
+	}
+	public JButton getConncetBtn() {
+		return connect;
+	}
+	public String getIDConnect() {
+		return connectfield.getText();
 	}
 	
 	public JTextArea getBoxShowFriennd() {
