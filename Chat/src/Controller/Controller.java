@@ -47,6 +47,7 @@ public class Controller {
 		f = new MainFrame(loginPanel);
 		logIn();
 		getIDConnect();
+		getMsgSay();
 	}
 	
 	public User getUser() {
@@ -133,6 +134,16 @@ public class Controller {
 });
 
 		
+	}
+	public void getMsgSay() {
+		chatDisplay.getMsgBtn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String msg;
+				msg = chatDisplay.getMsgSay();
+				System.out.println("Clicent send msg:" + msg );
+				chatDisplay.setboxSend();
+			}
+		});
 	}
 	
 	

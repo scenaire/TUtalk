@@ -121,6 +121,12 @@ public class ChatDisplay extends JPanel{
 	public JTextArea getBoxShowFriennd() {
 		return boxShowFriend;
 	}
+	public JButton getMsgBtn() {
+		return bSend;
+	}
+	public String getMsgSay() {
+		return boxSend.getText();
+	}
 	
 	public void contactList(String cn) {
 		contact=cn;
@@ -132,6 +138,9 @@ public class ChatDisplay extends JPanel{
 	
 	public String getMessage() {
 		return messOut;
+	}
+	public void setboxSend() {
+		boxSend.setText("");
 	}
 	
 }
