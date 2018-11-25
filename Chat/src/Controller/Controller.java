@@ -48,7 +48,6 @@ public class Controller {
 	public void run() {
 		f = new MainFrame(loginPanel);
 		logIn();
-		getIDConnect();
 	}
 	
 	public User getUser() {
@@ -91,7 +90,6 @@ public class Controller {
 				} catch (UnknownHostException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("hiiiii");
 				int port = 28000;
 				user.setUser_ID(id);
 				user.setUser_Pass(pass);
@@ -100,6 +98,7 @@ public class Controller {
 				try {
 					if (login.isLogin(s, user)) {
 						StartHB();
+						startListening();
 						chatF = new JFrame();
 						chatF.add(chatDisplay);
 						chatF.pack();
@@ -117,8 +116,11 @@ public class Controller {
 								} 
 					        }
 					    }, 0L, 4000L);
-						
-						
+					    chatDisplay.getConnectBtn().addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								System.out.println("Connect!!");
+							}
+					    });
 					} else {
 						JOptionPane.showMessageDialog(null, "Invalid username or password");
 					}
@@ -128,18 +130,7 @@ public class Controller {
 			}
 		});
 	}
-	public void getIDConnect() {
-		chatDisplay.getConncetBtn().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					String conncetID ;
-					conncetID = chatDisplay.getIDConnect();
-					System.out.println("Client want connect ID :"+conncetID);
-		
-	}
-});
-
-		
-	}
+	
 	
 	
 }
