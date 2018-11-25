@@ -12,8 +12,8 @@ public class LoginPanel extends JPanel{
 	private ChatDisplay cD = new ChatDisplay();
   
   	public LoginPanel() {
-  		idField.setText("5909610015");
-  		passField.setText("0015");
+  		idField.setText("5909610262");
+  		passField.setText("0262");
   		JPanel panelAll = new JPanel();
   		JPanel p1 = new JPanel();
   		JPanel p2 = new JPanel();
