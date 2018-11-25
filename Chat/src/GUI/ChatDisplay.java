@@ -120,7 +120,7 @@ public class ChatDisplay extends JPanel{
 	public JButton getConnectBtn() {
 		return connect;
 	}
-	public String getIDConnect() {
+	public String getIDonnect() {
 		return connectfield.getText();
 	}
 	
