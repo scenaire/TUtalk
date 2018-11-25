@@ -38,8 +38,5 @@ public class Client {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	
-	
-	
 
 }

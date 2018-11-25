@@ -18,6 +18,15 @@ public class ClientList {
 		return ClientList.get(index);
 	}
 	
+	public Client getClientFromID(String ID) {
+		for (Client a : ClientList) {
+			if (a.getID().equals(ID)) {
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	public void removeAll() {
 		ClientList.clear();
 	}

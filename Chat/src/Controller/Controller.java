@@ -1,6 +1,6 @@
 package Controller;
 
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 import Client.Client;
 import Client.ClientList;
+import Client.ConnectionThread;
 import Client.HBThread;
 import Client.ListeningThread;
 import Client.Login;
@@ -26,11 +27,9 @@ import GUI.MainFrame;
 public class Controller {
 
 	private User user; 
-	private HBThread  HB;
 	private LoginPanel loginPanel;
 	private ClientList cl;
-	private Thread hbThread;
-	private Thread listeningThread;
+	private Thread hbThread, listeningThread, connectionThread;
 	private ChatDisplay chatDisplay;
 	private Socket s;
 	private Login login;
@@ -77,6 +76,12 @@ public class Controller {
 	
 	public void startListening() {
 		listeningThread = new Thread(new ListeningThread(user));
+		listeningThread.start();
+	}
+	
+	public void startConnect(Client c) {
+		connectionThread = new Thread(new ConnectionThread(c, user));
+		connectionThread.start();
 	}
 	
 	public void logIn() {
@@ -118,7 +123,13 @@ public class Controller {
 					    }, 0L, 4000L);
 					    chatDisplay.getConnectBtn().addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								System.out.println("Connect!!");
+								try {
+									listeningThread.wait();
+								} catch (InterruptedException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								startConnect(cl.getClientFromID(chatDisplay.getConnectBtn().getText()));
 							}
 					    });
 					} else {
