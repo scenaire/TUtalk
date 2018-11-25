@@ -23,6 +23,7 @@ public class ListeningThread implements Runnable {
 		while(true) {
 			try {
 				Socket socket = listener.accept();
+				System.out.println("Connect!");
 				PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 out.println("Success");
 			} catch (IOException e) {

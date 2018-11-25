@@ -129,6 +129,7 @@ public class Controller {
 									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}
+								System.out.println("Start connect");
 								startConnect(cl.getClientFromID(chatDisplay.getConnectBtn().getText()));
 							}
 					    });

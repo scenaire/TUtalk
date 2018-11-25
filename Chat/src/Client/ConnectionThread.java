@@ -26,7 +26,7 @@ public class ConnectionThread implements Runnable {
 		try {
 			reader = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			if ((line = reader.readLine()) != null) {
-				System.out.println(line);
+				System.out.println("Server say : "+line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
