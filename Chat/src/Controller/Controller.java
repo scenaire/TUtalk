@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import Client.Client;
 import Client.ClientList;
 import Client.HBThread;
+import Client.ListeningThread;
 import Client.Login;
 import Client.User;
 import GUI.ChatDisplay;
@@ -29,6 +30,7 @@ public class Controller {
 	private LoginPanel loginPanel;
 	private ClientList cl;
 	private Thread hbThread;
+	private Thread listeningThread;
 	private ChatDisplay chatDisplay;
 	private Socket s;
 	private Login login;
@@ -73,6 +75,10 @@ public class Controller {
 		hbThread.start();
 	}
 	
+	public void startListening() {
+		listeningThread = new Thread(new ListeningThread(user));
+	}
+	
 	public void logIn() {
 		loginPanel.getLoginBtn().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,7 +115,7 @@ public class Controller {
 									chatDisplay.getBoxShowFriennd().append(a.getID()+": "+online+"\n");
 								} 
 					        }
-					    }, 0L, 5000L);
+					    }, 0L, 4000L);
 						
 						
 					} else {
