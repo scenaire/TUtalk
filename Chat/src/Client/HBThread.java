@@ -47,8 +47,6 @@ public class HBThread implements Runnable{
 	@Override
 	public void run() {
 		
-		System.out.println("hi");
-		
 		try {
 			updateFriendList();
 		} catch (IOException e1) {

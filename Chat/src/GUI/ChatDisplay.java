@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -111,7 +112,12 @@ public class ChatDisplay extends JPanel{
 		panelAll2.add(connectPanel,BorderLayout.SOUTH);
 		this.add(panelAll2);
 	}
-	public JButton getConncetBtn() {
+	
+	public JTextArea getBoxChat() {
+		return boxchat;
+	}
+	
+	public JButton getConnectBtn() {
 		return connect;
 	}
 	public String getIDonnect() {
