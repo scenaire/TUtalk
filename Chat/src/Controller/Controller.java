@@ -124,7 +124,7 @@ public class Controller {
 		});
 	}
 	public void getIDConnect() {
-		chatDisplay.getConncetBtn().addActionListener(new ActionListener() {
+		chatDisplay.getConnectBtn().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					String conncetID ;
 					conncetID = chatDisplay.getIDConnect();

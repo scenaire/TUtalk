@@ -114,18 +114,12 @@ public class ChatDisplay extends JPanel{
 	public JButton getConncetBtn() {
 		return connect;
 	}
-	public String getIDConnect() {
+	public String getIDonnect() {
 		return connectfield.getText();
 	}
 	
 	public JTextArea getBoxShowFriennd() {
 		return boxShowFriend;
-	}
-	public JButton getMsgBtn() {
-		return bSend;
-	}
-	public String getMsgSay() {
-		return boxSend.getText();
 	}
 	
 	public void contactList(String cn) {
@@ -138,9 +132,6 @@ public class ChatDisplay extends JPanel{
 	
 	public String getMessage() {
 		return messOut;
-	}
-	public void setboxSend() {
-		boxSend.setText("");
 	}
 	
 }
