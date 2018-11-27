@@ -16,6 +16,7 @@ public class ConnectionThread implements Runnable {
 	
 	public ConnectionThread(Client c, User user) {
 		try {
+			
 			System.out.println("try to ask them to talk with me...");
 			System.out.println(c.getIP()+": "+c.getPort());
 			s = new Socket(c.getIP(),c.getPort());

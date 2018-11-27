@@ -109,6 +109,7 @@ public class Controller {
 						chatF.pack();
 						chatF.setVisible(true);
 						chatF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+						
 						Timer t = new Timer();
 					    t.schedule(new TimerTask() {
 					        @Override public void run() {
@@ -123,6 +124,13 @@ public class Controller {
 					    }, 0L, 4000L);
 					    chatDisplay.getConnectBtn().addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
+								try {
+									listeningThread.wait();
+									System.out.println("Listening stop");
+								} catch (InterruptedException e1) {
+									
+									e1.printStackTrace();
+								}
 								startConnect(cl.getClientFromID(chatDisplay.getIDonnect()));
 							}
 					    });

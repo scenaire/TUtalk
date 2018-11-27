@@ -17,7 +17,6 @@ public class ListeningThread implements Runnable {
 
 	public ListeningThread(User user) {
 		try {
-			System.out.println(user.getUser_Port());
 			listener = new ServerSocket(user.getUser_Port());
 		} catch (IOException e) {
 			e.printStackTrace();
